@@ -1,0 +1,23 @@
+{
+  "info": {
+    "alias": "Nice Orange",
+    "deviceModel": "Samsung", // nullable
+    "deviceType": "mobile" // mobile | desktop | web
+  },
+  "files": {
+    "some file id": {
+      "id": "some file id",
+      "fileName": "my image.png",
+      "size": 324242, // bytes
+      "fileType": "image", // image | video | pdf | text | other
+      "preview": "*preview data*" // nullable
+    },
+    "another file id": {
+      "id": "another file id",
+      "fileName": "another image.jpg",
+      "size": 1234,
+      "fileType": "image",
+      "preview": "*preview data*"
+    }
+  }
+}
