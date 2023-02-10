@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+#define SIMULATION_TIME 1000  // in milliseconds
+#define PACKET_INTERVAL 100   // in milliseconds
+#define PACKET_SIZE 1000      // in bytes
+
+typedef struct {
+  int id;
+  int size;
+  int arrival_time;
+} Packet;
+
+// generate a packet with a random arrival time
+Packet generate_packet() {
+  Packet packet;
+  packet.id = rand();
+  packet.size = PACKET_SIZE;
+  packet.arrival_time = rand() % PACKET_INTERVAL;
+  return packet;
+}
+
+int main(int argc, char *argv[]) {
+  srand(time(NULL));
+
+  int current_time = 0;
+  Packet packet = generate_packet();
+
+  while (current_time < SIMULATION_TIME) {
+    if (current_time == packet.arrival_time) {
+      printf("Packet %d of size %d bytes arrived at time %d\n", packet.id, packet.size, current_time);
+
+      // generate the next packet
+      packet = generate_packet();
+    }
+
+    current_time++;
+  }
+
+  return 0;
+}
